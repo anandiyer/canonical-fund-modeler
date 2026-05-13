@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans:
+    "Inter var", "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono:
+    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --color-canvas: #fafaf7;
+  --color-card: #ffffff;
+  --color-rule: #e7e5e0;
+  --color-rule-strong: #d6d3cc;
+
+  --color-ink: #111827;
+  --color-ink-soft: #374151;
+  --color-ink-muted: #6b7280;
+  --color-ink-faint: #9ca3af;
+
+  --color-navy: #1e3a8a;
+  --color-navy-soft: #1e40af;
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+
+  --color-positive: #059669;
+  --color-negative: #dc2626;
+  --color-warning: #b45309;
+
+  --radius-card: 0.5rem;
+}
+
+:root {
+  font-family: var(--font-sans);
+  font-feature-settings:
+    "ss01" on,
+    "cv11" on;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: "Inter var", var(--font-sans);
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-ink-soft);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.kpi-num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "ss01" on;
+  letter-spacing: -0.02em;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}

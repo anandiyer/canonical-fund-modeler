@@ -2,46 +2,53 @@
 
 @theme {
   --font-sans:
-    "Inter var", "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    "Aeonik Regular", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
   --font-mono:
     "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-  --color-canvas: #fafaf7;
+  /* canvas / surface — adapted lightly for data legibility */
+  --color-canvas: #f8fafc;
   --color-card: #ffffff;
-  --color-rule: #e7e5e0;
-  --color-rule-strong: #d6d3cc;
+  --color-rule: #e2e8f0;
+  --color-rule-strong: #cbd5e1;
 
+  /* text — exact canonical.cc palette */
   --color-ink: #111827;
-  --color-ink-soft: #374151;
-  --color-ink-muted: #6b7280;
-  --color-ink-faint: #9ca3af;
+  --color-ink-soft: #475569;
+  --color-ink-muted: #64748b;
+  --color-ink-faint: #94a3b8;
 
+  /* navy / accent — exact canonical.cc palette */
   --color-navy: #1e3a8a;
   --color-navy-soft: #1e40af;
+  --color-navy-light: #1d4ed8;
   --color-accent: #2563eb;
   --color-accent-hover: #1d4ed8;
+  --color-accent-faint: #bfdbfe;
+  --color-accent-bg: rgba(37, 99, 235, 0.1);
 
   --color-positive: #059669;
   --color-negative: #dc2626;
   --color-warning: #b45309;
 
   --radius-card: 0.5rem;
+
+  /* canonical.cc body gradient */
+  --gradient-canonical: linear-gradient(
+    180deg,
+    #1e3a8a 0%,
+    #1e40af 50%,
+    #1d4ed8 100%
+  );
 }
 
 :root {
   font-family: var(--font-sans);
-  font-feature-settings:
-    "ss01" on,
-    "cv11" on;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-}
-
-@supports (font-variation-settings: normal) {
-  :root {
-    font-family: "Inter var", var(--font-sans);
-  }
+  font-synthesis: weight;
 }
 
 html,
@@ -56,6 +63,7 @@ body {
   color: var(--color-ink-soft);
   font-size: 14px;
   line-height: 1.45;
+  letter-spacing: 0.01em;
 }
 
 .tabular {
@@ -64,7 +72,6 @@ body {
 
 .kpi-num {
   font-variant-numeric: tabular-nums;
-  font-feature-settings: "ss01" on;
   letter-spacing: -0.02em;
 }
 

@@ -8,6 +8,8 @@ import { readHashInputs, writeHashInputs } from "./lib/url";
 type Action =
   | { type: "set"; patch: Partial<FundInputs> }
   | { type: "setOutcome"; id: string; patch: Partial<OutcomeBucket> }
+  | { type: "addOutcome" }
+  | { type: "removeOutcome"; id: string }
   | { type: "replace"; inputs: FundInputs }
   | { type: "reset" };
 
@@ -22,6 +24,29 @@ function reducer(state: FundInputs, action: Action): FundInputs {
           o.id === action.id ? { ...o, ...action.patch } : o
         ),
       };
+    case "addOutcome": {
+      const newId = `b-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`;
+      return {
+        ...state,
+        outcomes: [
+          ...state.outcomes,
+          {
+            id: newId,
+            label: "New outcome",
+            share: 0.05,
+            multiple: 2,
+            exitYear: Math.max(2, Math.min(state.fundLife, 7)),
+          },
+        ],
+      };
+    }
+    case "removeOutcome": {
+      if (state.outcomes.length <= 1) return state;
+      return {
+        ...state,
+        outcomes: state.outcomes.filter((o) => o.id !== action.id),
+      };
+    }
     case "replace":
       return action.inputs;
     case "reset":

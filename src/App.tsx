@@ -62,9 +62,12 @@ function App() {
           outcomes={inputs.outcomes}
           buckets={result.buckets}
           lifeMax={inputs.fundLife}
+          canRemove={inputs.outcomes.length > 1}
           onSetOutcome={(id, patch) =>
             dispatch({ type: "setOutcome", id, patch })
           }
+          onAddOutcome={() => dispatch({ type: "addOutcome" })}
+          onRemoveOutcome={(id) => dispatch({ type: "removeOutcome", id })}
         />
 
         <CashflowTable years={result.years} vintageYear={inputs.vintageYear} />

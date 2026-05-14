@@ -1,12 +1,5 @@
 import { useEffect, useState } from "react";
 
-const NAV_LINKS = [
-  { label: "ABOUT", href: "https://canonical.cc/#about" },
-  { label: "THESIS", href: "https://canonical.cc/#thesis" },
-  { label: "PORTFOLIO", href: "https://canonical.cc/portfolio" },
-  { label: "TEAM", href: "https://canonical.cc/#team" },
-];
-
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -16,6 +9,11 @@ export function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const navLinkStyle = {
+    color: "rgba(255, 255, 255, 0.8)",
+    fontWeight: 500,
+  } as const;
 
   return (
     <header
@@ -37,19 +35,61 @@ export function Header() {
             />
           </a>
           <nav className="hidden md:flex items-center space-x-10">
-            {NAV_LINKS.map((l) => (
-              <a
-                key={l.label}
-                href={l.href}
-                className="text-sm transition tracking-[0.1em] hover:text-white"
-                style={{
-                  color: "rgba(255, 255, 255, 0.8)",
-                  fontWeight: 500,
-                }}
+            <a
+              href="https://canonical.cc/#about"
+              className="text-sm tracking-[0.1em] transition hover:text-white"
+              style={navLinkStyle}
+            >
+              ABOUT
+            </a>
+            <a
+              href="https://canonical.cc/#thesis"
+              className="text-sm tracking-[0.1em] transition hover:text-white"
+              style={navLinkStyle}
+            >
+              THESIS
+            </a>
+            <a
+              href="https://canonical.cc/portfolio"
+              className="text-sm tracking-[0.1em] transition hover:text-white"
+              style={navLinkStyle}
+            >
+              PORTFOLIO
+            </a>
+            <div className="nav-dropdown">
+              <button
+                type="button"
+                className="nav-dropdown-toggle text-sm tracking-[0.1em] transition hover:text-white cursor-pointer"
+                style={navLinkStyle}
+                aria-haspopup="true"
+                aria-expanded="false"
               >
-                {l.label}
-              </a>
-            ))}
+                HACKS
+              </button>
+              <div className="nav-dropdown-menu" role="menu">
+                <a
+                  href="https://dilutionlab.canonical.cc"
+                  className="nav-dropdown-item"
+                  role="menuitem"
+                >
+                  Dilution Lab
+                </a>
+                <a
+                  href="https://fundmodeler.canonical.cc"
+                  className="nav-dropdown-item"
+                  role="menuitem"
+                >
+                  Fund Modeler
+                </a>
+              </div>
+            </div>
+            <a
+              href="https://canonical.cc/#team"
+              className="text-sm tracking-[0.1em] transition hover:text-white"
+              style={navLinkStyle}
+            >
+              TEAM
+            </a>
           </nav>
         </div>
       </div>

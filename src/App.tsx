@@ -15,7 +15,13 @@ function App() {
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-1 w-full max-w-4xl mx-auto px-6 sm:px-10 pt-28 sm:pt-32 pb-24">
-        <div className="flex justify-end">
+        <div className="flex items-baseline justify-between gap-4 mb-8">
+          <div
+            className="text-xs uppercase tracking-[0.18em] text-white/55"
+            style={{ fontWeight: 500 }}
+          >
+            canonical · fundmodeler
+          </div>
           <Actions
             inputs={inputs}
             years={result.years}

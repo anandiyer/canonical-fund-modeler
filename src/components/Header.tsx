@@ -37,12 +37,6 @@ export function Header() {
               alt="Canonical"
               className="h-8 w-auto"
             />
-            <span
-              className="hidden sm:inline text-xs text-white/60 tracking-[0.1em]"
-              style={{ fontWeight: 500 }}
-            >
-              FUNDMODELER
-            </span>
           </a>
           <nav className="hidden md:flex items-center gap-10">
             {NAV_LINKS.map((l) => (

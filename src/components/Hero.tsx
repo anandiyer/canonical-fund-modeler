@@ -35,13 +35,7 @@ export function Hero({
 
   return (
     <>
-      <section className="pt-4 pb-10 max-w-3xl">
-        <div
-          className="text-[11px] uppercase tracking-[0.18em] text-white/55 mb-4"
-          style={{ fontWeight: 500 }}
-        >
-          canonical · fundmodeler
-        </div>
+      <section className="pt-2 pb-10 max-w-3xl">
         <h1 className="text-4xl sm:text-5xl md:text-6xl text-white tracking-tight leading-[1.05]">
           Model your venture fund.
         </h1>

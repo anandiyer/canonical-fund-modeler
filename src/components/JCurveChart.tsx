@@ -24,9 +24,9 @@ export function JCurveChart({ curve, vintageYear, netTVPI }: Props) {
   }));
 
   return (
-    <section className="py-10 border-t border-rule">
+    <section className="card p-6 sm:p-8">
       <div className="flex items-baseline justify-between mb-2">
-        <h2 className="text-[11px] uppercase tracking-[0.16em] text-ink-muted font-medium">
+        <h2 className="text-[11px] uppercase tracking-[0.16em] text-ink-muted" style={{ fontWeight: 500 }}>
           The path
         </h2>
         <div className="flex items-center gap-4 text-xs text-ink-faint">
@@ -56,15 +56,15 @@ export function JCurveChart({ curve, vintageYear, netTVPI }: Props) {
                 <stop offset="100%" stopColor="#059669" stopOpacity={0} />
               </linearGradient>
             </defs>
-            <CartesianGrid stroke="#eeece6" strokeDasharray="2 4" vertical={false} />
+            <CartesianGrid stroke="#e2e8f0" strokeDasharray="2 4" vertical={false} />
             <XAxis
               dataKey="year"
-              tick={{ fill: "#9ca3af", fontSize: 11 }}
-              axisLine={{ stroke: "#e7e5e0" }}
+              tick={{ fill: "#94a3b8", fontSize: 11 }}
+              axisLine={{ stroke: "#e2e8f0" }}
               tickLine={false}
             />
             <YAxis
-              tick={{ fill: "#9ca3af", fontSize: 11 }}
+              tick={{ fill: "#94a3b8", fontSize: 11 }}
               axisLine={false}
               tickLine={false}
               tickFormatter={(v: number) => `${v.toFixed(1)}×`}
@@ -74,12 +74,12 @@ export function JCurveChart({ curve, vintageYear, netTVPI }: Props) {
             <Tooltip
               contentStyle={{
                 background: "#fff",
-                border: "1px solid #e7e5e0",
+                border: "1px solid #e2e8f0",
                 borderRadius: 6,
                 fontSize: 12,
                 padding: "8px 10px",
               }}
-              labelStyle={{ color: "#374151", fontWeight: 500, marginBottom: 4 }}
+              labelStyle={{ color: "#475569", marginBottom: 4 }}
               formatter={(value, name) => [
                 `${Number(value).toFixed(2)}×`,
                 String(name),
@@ -88,12 +88,12 @@ export function JCurveChart({ curve, vintageYear, netTVPI }: Props) {
             />
             <ReferenceLine
               y={1}
-              stroke="#cbc8c0"
+              stroke="#cbd5e1"
               strokeDasharray="3 3"
               label={{
                 value: "1.0× LPs made whole",
                 position: "right",
-                fill: "#9ca3af",
+                fill: "#94a3b8",
                 fontSize: 10,
               }}
             />

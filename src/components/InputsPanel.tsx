@@ -21,9 +21,9 @@ export function InputsPanel({
   const [showMore, setShowMore] = useState(false);
 
   return (
-    <section className="py-10">
+    <section className="card p-6 sm:p-8">
       <div className="flex items-baseline justify-between mb-6">
-        <h2 className="text-[11px] uppercase tracking-[0.16em] text-ink-muted font-medium">
+        <h2 className="text-[11px] uppercase tracking-[0.16em] text-ink-muted" style={{ fontWeight: 500 }}>
           The fund
         </h2>
         <button
@@ -143,7 +143,8 @@ export function InputsPanel({
 
       <div className="mt-6 text-xs text-ink-faint tabular flex flex-wrap gap-x-6 gap-y-1">
         <span>
-          Entry ownership ≈ <span className="text-ink-soft">{fmtPct(impliedOwnership)}</span>
+          Entry ownership ≈{" "}
+          <span className="text-ink-soft">{fmtPct(impliedOwnership)}</span>
         </span>
         <span>
           Fees over life:{" "}
@@ -151,13 +152,15 @@ export function InputsPanel({
         </span>
         <span
           className={
-            reserveAdequacy < 0.95
-              ? "text-warning"
-              : "text-ink-faint"
+            reserveAdequacy < 0.95 ? "text-warning" : "text-ink-faint"
           }
         >
           Reserves cover{" "}
-          <span className={reserveAdequacy < 0.95 ? "text-warning" : "text-ink-soft"}>
+          <span
+            className={
+              reserveAdequacy < 0.95 ? "text-warning" : "text-ink-soft"
+            }
+          >
             {fmtPct(reserveAdequacy)}
           </span>{" "}
           of planned follow-ons

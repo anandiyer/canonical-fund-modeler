@@ -58,18 +58,18 @@ export function Actions({ inputs, years, onReset }: Props) {
   };
 
   return (
-    <div className="flex items-center gap-5 text-xs text-ink-muted">
+    <div className="flex items-center gap-5 text-xs text-white/70">
       <button
         type="button"
         onClick={copyLink}
-        className="hover:text-accent transition"
+        className="hover:text-white transition"
       >
         {copied ? "Copied ✓" : "Share link"}
       </button>
       <button
         type="button"
         onClick={downloadCSV}
-        className="hover:text-accent transition"
+        className="hover:text-white transition"
       >
         Export CSV
       </button>
@@ -78,7 +78,7 @@ export function Actions({ inputs, years, onReset }: Props) {
         onClick={() => {
           if (confirm("Reset all inputs to defaults?")) onReset();
         }}
-        className="hover:text-negative transition"
+        className="hover:text-white transition"
       >
         Reset
       </button>

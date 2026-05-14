@@ -32,9 +32,12 @@ export function OutcomesPanel({
   const totalCap = buckets.reduce((s, b) => s + b.capitalInvested, 0);
 
   return (
-    <section className="py-10 border-t border-rule">
+    <section className="card p-6 sm:p-8">
       <div className="flex items-baseline justify-between mb-2">
-        <h2 className="text-[11px] uppercase tracking-[0.16em] text-ink-muted font-medium">
+        <h2
+          className="text-[11px] uppercase tracking-[0.16em] text-ink-muted"
+          style={{ fontWeight: 500 }}
+        >
           The portfolio
         </h2>
         <span

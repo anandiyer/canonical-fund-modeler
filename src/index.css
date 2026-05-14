@@ -7,13 +7,13 @@
   --font-mono:
     "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-  /* canvas / surface — adapted lightly for data legibility */
-  --color-canvas: #f8fafc;
+  /* surfaces */
   --color-card: #ffffff;
+  --color-card-soft: rgba(255, 255, 255, 0.96);
   --color-rule: #e2e8f0;
   --color-rule-strong: #cbd5e1;
 
-  /* text — exact canonical.cc palette */
+  /* text — exact canonical.cc palette (used inside white cards) */
   --color-ink: #111827;
   --color-ink-soft: #475569;
   --color-ink-muted: #64748b;
@@ -32,15 +32,18 @@
   --color-negative: #dc2626;
   --color-warning: #b45309;
 
-  --radius-card: 0.5rem;
+  --radius-card: 0.75rem;
 
-  /* canonical.cc body gradient */
+  /* canonical.cc body gradient — applied to <body> */
   --gradient-canonical: linear-gradient(
     180deg,
     #1e3a8a 0%,
     #1e40af 50%,
     #1d4ed8 100%
   );
+
+  /* canonical.cc card shadow */
+  --shadow-card: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
 }
 
 :root {
@@ -51,16 +54,16 @@
   font-synthesis: weight;
 }
 
-html,
-body,
-#root {
-  height: 100%;
+html {
+  min-height: 100%;
 }
 
 body {
   margin: 0;
-  background: var(--color-canvas);
-  color: var(--color-ink-soft);
+  min-height: 100vh;
+  background: var(--gradient-canonical);
+  background-attachment: fixed;
+  color: rgba(255, 255, 255, 0.85);
   font-size: 14px;
   line-height: 1.45;
   letter-spacing: 0.01em;
@@ -73,6 +76,19 @@ body {
 .kpi-num {
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;
+}
+
+/* canonical-style white card */
+.card {
+  background-color: var(--color-card-soft);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  color: var(--color-ink-soft);
+}
+.card input,
+.card textarea,
+.card select {
+  color: var(--color-ink);
 }
 
 input[type="number"]::-webkit-outer-spin-button,

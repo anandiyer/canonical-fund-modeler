@@ -8,10 +8,13 @@ type Props = {
 
 export function CashflowTable({ years, vintageYear }: Props) {
   return (
-    <section className="py-10 border-t border-rule">
+    <section className="card p-6 sm:p-8">
       <details className="group">
         <summary className="cursor-pointer list-none flex items-baseline justify-between mb-2 select-none">
-          <h2 className="text-[11px] uppercase tracking-[0.16em] text-ink-muted font-medium">
+          <h2
+            className="text-[11px] uppercase tracking-[0.16em] text-ink-muted"
+            style={{ fontWeight: 500 }}
+          >
             Year by year
           </h2>
           <span className="text-xs text-accent group-open:text-ink-faint">

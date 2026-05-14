@@ -40,20 +40,16 @@ export function Hero({
         value={fundName}
         onChange={(e) => onRenameFund(e.target.value)}
         aria-label="Fund name"
-        className="block w-full text-5xl sm:text-6xl font-light tracking-tight text-ink-strong bg-transparent border-b border-transparent hover:border-rule focus:border-accent focus:outline-none -ml-1 px-1"
+        className="block w-full text-5xl sm:text-6xl tracking-tight text-white bg-transparent border-b border-transparent hover:border-white/30 focus:border-white/60 focus:outline-none -ml-1 px-1"
       />
-      <p className="mt-6 text-xl sm:text-2xl font-light leading-relaxed text-ink-soft">
+      <p className="mt-6 text-xl sm:text-2xl leading-relaxed text-white/80">
         A {fmtFundSize(fundSize)} fund, {vintageYear} vintage,{" "}
         {numInvestments} investments. Modeled return:{" "}
-        <span className="text-ink-strong font-normal kpi-num">
-          {fmtMultiple(tvpi)}
-        </span>{" "}
-        net to LPs at{" "}
-        <span className="text-ink-strong font-normal kpi-num">
-          {fmtPct(result.netIRR, 1)}
-        </span>{" "}
+        <span className="text-white kpi-num">{fmtMultiple(tvpi)}</span> net to
+        LPs at{" "}
+        <span className="text-white kpi-num">{fmtPct(result.netIRR, 1)}</span>{" "}
         IRR
-        <span className="text-ink-faint"> — {verdict}.</span>
+        <span className="text-white/55"> — {verdict}.</span>
       </p>
     </section>
   );

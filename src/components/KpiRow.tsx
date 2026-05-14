@@ -32,16 +32,16 @@ export function KpiRow({ result }: { result: ModelResult }) {
   ];
 
   return (
-    <section className="grid grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-8 py-8 border-y border-rule">
+    <section className="grid grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-8 py-8 border-y border-white/15">
       {stats.map((s) => (
         <div key={s.label}>
-          <div className="text-[11px] uppercase tracking-[0.16em] text-ink-muted font-medium">
+          <div className="text-[11px] uppercase tracking-[0.16em] text-white/55" style={{ fontWeight: 500 }}>
             {s.label}
           </div>
-          <div className="kpi-num text-4xl sm:text-5xl text-ink-strong mt-2 font-extralight">
+          <div className="kpi-num text-4xl sm:text-5xl text-white mt-2">
             {s.value}
           </div>
-          <div className="text-xs text-ink-faint mt-1 tabular">{s.hint}</div>
+          <div className="text-xs text-white/55 mt-1 tabular">{s.hint}</div>
         </div>
       ))}
     </section>
